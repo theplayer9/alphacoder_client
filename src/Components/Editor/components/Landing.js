@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { defineTheme } from "../lib/defineTheme";
 import useKeyPress from "../hooks/useKeyPress";
-import Footer from "./Footer";
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import OutputDetails from "./OutputDetails";
@@ -65,7 +64,7 @@ const Landing = () => {
       url: process.env.REACT_APP_RAPID_API_URL,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
-        "content-type": "application/json",
+        // "content-type": "application/json",
         "Content-Type": "application/json",
         "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
         "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
@@ -214,7 +213,6 @@ const Landing = () => {
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
