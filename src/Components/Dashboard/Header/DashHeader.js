@@ -11,9 +11,20 @@ const DashHeader = () => {
       >
         <span className="text-primary-color">&lt;/&gt;</span> Alphacoder
       </div>
-      <div className="w-10 h-10 md:w-12 md:h-12 text-[12px] md:text-sm ">
-        <div className=" w-full h-full flex justify-center items-center bg-primary-color rounded-full overflow-hidden">
-          <img src={Avatar} />
+      <div className="flex items-center gap-2 ">
+        <div
+          onClick={() => {
+            localStorage.removeItem("access_token");
+            router("/");
+          }}
+          className="bg-primary-color hover:cursor-pointer rounded-md p-2"
+        >
+          Logout
+        </div>
+        <div className="w-10 h-10 md:w-12 md:h-12 text-[12px] md:text-sm ">
+          <div className=" w-full h-full flex justify-center items-center bg-primary-color rounded-full overflow-hidden">
+            <img src={Avatar} />
+          </div>
         </div>
       </div>
     </div>

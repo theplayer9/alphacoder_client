@@ -6,7 +6,9 @@ const index = () => {
   return (
     <>
       <DashHeader />
+
       <DashData />
+
       <Footer />
     </>
   );
