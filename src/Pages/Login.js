@@ -18,7 +18,7 @@ const Login = () => {
     setPassword("");
   };
   const gitAuth =()=>{
-    window.location.assign("https://alphacoderseverfiber.up.railway.app/login/github")
+    window.location.assign("")
   }
 
   const userLogin = async (e) => {
