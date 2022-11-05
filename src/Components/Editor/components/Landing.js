@@ -59,6 +59,14 @@ const Landing = () => {
   };
 
   function handleThemeChange(th) {
+    const theme = th;
+    console.log("theme...", theme);
+
+    if (["light", "vs-dark"].includes(theme.value)) {
+      setTheme(theme);
+    } else {
+      defineTheme(theme.value).then((_) => setTheme(theme));
+    }
   }
   useEffect(() => {
     defineTheme("oceanic-next").then((_) =>
