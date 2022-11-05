@@ -15,7 +15,7 @@ const DashData = () => {
   const [count, setCount] = useState({});
   const [loading, setLoading] = useState(true);
   const FETCH_URI =
-    "https://alphacoder-server-production-c02a.up.railway.app/sheet";
+    "https://alphacoderseverfiber.up.railway.app/sheet";
   const [token] = useUserAuth();
   const router = useNavigate();
 

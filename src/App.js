@@ -34,6 +34,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/" element={<Dashboard />} />
+
         </Routes>
       </UserProvider>
     </Router>

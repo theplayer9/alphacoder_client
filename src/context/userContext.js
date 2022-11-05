@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Token: token,
+          Authorization : `Bearer ${token}`,
         },
       };
 

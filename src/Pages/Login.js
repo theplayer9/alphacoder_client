@@ -5,7 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useUserAuth } from "../context/userContext";
 import { ArrowBack } from "@mui/icons-material";
-const FETCH_URI = "https://alphacoder-server-production-c02a.up.railway.app/";
+import GitHubIcon from '@mui/icons-material/GitHub';
+const FETCH_URI = "https://alphacoderseverfiber.up.railway.app/";
 const Login = () => {
   const [setLoggedIn, setToken] = useUserAuth();
   const router = useNavigate();
@@ -16,6 +17,9 @@ const Login = () => {
     setEmail("");
     setPassword("");
   };
+  const gitAuth =()=>{
+    window.location.assign("https://alphacoderseverfiber.up.railway.app/login/github")
+  }
 
   const userLogin = async (e) => {
     e.preventDefault();
@@ -25,12 +29,12 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        Email: email,
-        Password: password,
+        email: email,
+        password: password,
       }),
     };
     const Response = await toast.promise(
-      fetch(FETCH_URI + "users/login", RequestOption),
+      fetch(FETCH_URI + "login/jwt", RequestOption),
       {
         pending: "Verifying! please wait.",
       }
@@ -40,17 +44,7 @@ const Login = () => {
     const impdata = JSON.parse(data);
     if (Response.ok) {
       ClearFormData();
-      console.log("data", data);
-      console.log("token", impdata.token, "dataParse", JSON.parse(data));
-      const user_data = {
-        firstname: impdata.first_name,
-        lastname: impdata.last_name,
-        email: impdata.email,
-        usersince: impdata.created_at,
-        lastlogin: impdata.updated_at,
-      };
-      const userdata = JSON.stringify(user_data);
-      localStorage.setItem("user_data", userdata);
+      console.log("token", impdata.token);
       setToken(impdata.token);
       router("/Dashboard");
     } else if (Response.status === 500) {
@@ -83,6 +77,14 @@ const Login = () => {
         <div className="w-full flex items-center flex-col pt-2">
           <h1 className="text-2xl w-3/4">Let's sign you in.</h1>
           <h2 className="text-xl w-3/4">Welcome back. You've been missed!</h2>
+        </div>
+        {/* -----GitHub login---------- */}
+        <div
+          className="w-3/4  flex items-center justify-center gap-x-2 h-12 rounded-md bg-primary shadow-light-shadow"
+           onClick={gitAuth}
+          >
+          <GitHubIcon />
+          Login with GitHub
         </div>
         <form className="flex flex-col items-center w-full gap-3">
           <input
