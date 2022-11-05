@@ -4,7 +4,7 @@ const Subhero = () => {
   return (
     <div className="w-full h-full flex justify-center items-center font-bold px-10 flex-col lg:flex-row gap-6">
       <div className="w-full h-1/2 lg:w-1/2 lg:h:full hover:-translate-y-3 hover:transition-all flex justify-center items-center">
-        <img src={SubHeroImg} className="md:w-3/4 lg:w-full" />
+        <img src={SubHeroImg} className="md:w-2/3 lg:w-3/4" />
       </div>
       <div className="w-full lg:w-1/2 lg:h-full flex items-center flex-col justify-center gap-y-3">
         <h1 className="text-2xl md:text-3xl lg:text-4xl ">

@@ -77,7 +77,7 @@ const Login = () => {
         <h1 className="font-head text-4xl md:text-6xl lg:text-6xl">
           <span className="text-primary-color">&lt;/&gt;</span>Alphacoder
         </h1>
-        <img src={LoginImg} className="w-[500px]" />
+        <img src={LoginImg} className="md:w-3/4 lg:w-2/3 sm:w-2/3" />
       </div>
       <div className="lg:w-1/2 lg:h-full lg:justify-evenly lg:bg-primary-light w-full h-1/2 flex flex-col items-center justify-between py-5">
         <div className="w-full flex items-center flex-col pt-2">
