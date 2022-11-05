@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import Img1 from "../../../Assets/StructureImg/img1.svg";
 import Img2 from "../../../Assets/StructureImg/img2.svg";
 import Img3 from "../../../Assets/StructureImg/img3.svg";
@@ -27,7 +27,9 @@ const DashData = () => {
     };
     const response = await fetch(FETCH_URI, requestOptions);
     const data = await response.text();
+    const objectData = [];
     const mainData = JSON.parse(data);
+    objectData.push(mainData);
     const easycount = mainData.all_data.filter(
       (item) => item.Level === "easy"
     ).length;
@@ -56,6 +58,7 @@ const DashData = () => {
     fetchAllQuestion();
   }, []);
   console.log("all", allQuestion, "easy", count);
+  console.log(typeof allQuestion);
   return (
     <>
       {loading === true ? (
@@ -100,18 +103,45 @@ const DashData = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:px-4">
-            <div className="flex w-full h-[700px] bg-primary-light">
-              <div className="flex md:overflow-hidden overflow-x-scroll">
-                <div className="flex flex-nowrap scroll-smooth">
-                  {/* <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div>
-                <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div>
-                <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div>
-                <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div>
-                <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div>
-                <div className="w-56 h-56 bg-primary-light shadow-light-shadow rounded-md"></div> */}
-                </div>
+          <div className="w-full md:px-4 overflow-x-scroll w-full h-[700px] bg-primary-light flex flex-nowrap scroll-smooth justify-center ">
+            <div className="w-full md:px-4 lex overflow-x-scroll w-full h-[700px] bg-primary-light">
+              {/* <input type="search"></input> */}
+              {/* <div className="flex w-full h-[700px] bg-primary-light"> */}
+              {/* <div className="flex overflow-x-scroll"> */}
+              <div className="flex  scroll-smooth justify-center ">
+                <table className=" overflow-x-scroll w-full">
+                  <thead>
+                    <tr className="flex w-full justify-between">
+                      <th>Title</th>
+                      <th>Solution</th>
+                      <th>Difficulty</th>
+                      <th>Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {allQuestion.all_data.map((question, i) => (
+                      <tr key={i} id={i} className="lex w-full justify-between">
+                        <td>{question.Name.substring(0, 25)}...</td>
+                        <td>
+                          {question.Link === "" ? (
+                            <InsertDriveFileIcon className=" text-red-700"></InsertDriveFileIcon>
+                          ) : (
+                            <InsertDriveFileIcon className="text-green-600 "></InsertDriveFileIcon>
+                          )}
+                        </td>
+                        <td>
+                          {question.Level === ""
+                            ? "Not Available"
+                            : question.Level}
+                        </td>
+                        <td>{question.Category}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
+              {/* </div> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
