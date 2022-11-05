@@ -53,15 +53,12 @@ const Landing = () => {
     }
   };
   const handleCompile = () => {
-    // We will come to the implementation later in the code
   };
 
   const checkStatus = async (token) => {
-    // We will come to the implementation later in the code
   };
 
   function handleThemeChange(th) {
-    // We will come to the implementation later in the code
   }
   useEffect(() => {
     defineTheme("oceanic-next").then((_) =>
