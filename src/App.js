@@ -8,7 +8,7 @@ import {
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+import Signup from "./Pages/SignUp";
 import { useUserAuth } from "./context/userContext";
 import { UserProvider } from "./context/userContext";
 import ProtectedRoute from "./ProtectiveRoute/ProtectedRoute";
@@ -37,7 +37,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/Problem/:userId" element={<Problem />} />
+          <Route
+            path="/Problem/:userId"
+            element={
+              <ProtectedRoute>
+                {" "}
+                <Problem />{" "}
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </UserProvider>
     </Router>
