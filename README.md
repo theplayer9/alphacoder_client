@@ -1,6 +1,7 @@
 ### [Live Site](https://alphacoder-client.vercel.app/dashboard)
 
-<!-- ![Crypto Cosmos]() -->
+![Crypto Cosmos](src/Assets/img1.png)
+![Crypto Cosmos](src/Assets/img2.png)
 
 <p align="center">
 <img src="https://img.shields.io/badge/Author-free souls-blue" />
@@ -19,7 +20,6 @@ The idea for this project was one of those startup ideas that I had a couple of 
 It is built using **React JS**, **JavaScript**, **Tailwind CSS** with full responsive functionality. I have used _Context API_ to manage the state of our app. We have used **Go** and **Fibre** to create auth and routes for various needs and to used **MongoDB** build a stable backend and store data. I
 
 ## 🥁 Features
-
 
 ## Scope Of Impovement
 
