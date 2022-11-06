@@ -3,6 +3,7 @@ import {
   Route,
   Routes,
   Navigate,
+  useParams,
 } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
@@ -11,9 +12,11 @@ import Signup from "./Pages/Signup";
 import { useUserAuth } from "./context/userContext";
 import { UserProvider } from "./context/userContext";
 import ProtectedRoute from "./ProtectiveRoute/ProtectedRoute";
+import Problem from "./Components/Problem/Problem";
 
 function App() {
   const [token] = useUserAuth();
+  let { userId } = useParams();
 
   return (
     <Router>
@@ -34,6 +37,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/Problem/:userId" element={<Problem />} />
         </Routes>
       </UserProvider>
     </Router>
