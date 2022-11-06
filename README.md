@@ -1,6 +1,6 @@
 ### [Live Site](https://alphacoder-client.vercel.app/dashboard)
 
-![Crypto Cosmos]()
+<!-- ![Crypto Cosmos]() -->
 
 <p align="center">
 <img src="https://img.shields.io/badge/Author-free souls-blue" />
