@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const DashHeader = () => {
   const router = useNavigate();
   const logout = () => {
-    router("/");
+    router("/login");
     localStorage.removeItem("access_token");
     localStorage.removeItem("user_data");
   };

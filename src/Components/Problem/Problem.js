@@ -4,7 +4,7 @@ import { useUserAuth } from "../../context/userContext";
 import Landing from "../Editor/components/Landing";
 
 const Problem = () => {
-  const [allQuestion, setAllQuestion] = useState([]);
+  const [allQuestion, setAllQuestion] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const FETCH_URI =
@@ -42,20 +42,35 @@ const Problem = () => {
 
   const { userId } = useParams();
   return (
-    <div className="bg-primary text-text">
-      <div>
-        {allQuestion.map((e) => {
-          return (
-            <div key={e.Id} className="h-full text-xl py-2 px-5 border-b-2 ">
-              <div dangerouslySetInnerHTML={{ __html: e.problem }}></div>
-            </div>
-          );
-        })}
+    <>
+      <div className="bg-primary text-text">
+        {token === null ? (
+          <div className="text-text h-40 flex justify-center items-end ">
+            Please Login or SignUp
+          </div>
+        ) : allQuestion === null ? (
+          <div className="text-text h-40 flex justify-center items-end ">
+            Loading...
+          </div>
+        ) : (
+          <div>
+            {allQuestion.map((e) => {
+              return (
+                <div
+                  key={e.Id}
+                  className="h-full text-xl py-2 px-5 border-b-2 "
+                >
+                  <div dangerouslySetInnerHTML={{ __html: e.problem }}></div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+        <div>
+          <Landing />
+        </div>
       </div>
-      <div>
-        <Landing />
-      </div>
-    </div>
+    </>
   );
 };
 

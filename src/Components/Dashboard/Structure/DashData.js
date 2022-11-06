@@ -20,28 +20,28 @@ const DashData = () => {
   const router = useNavigate();
 
   const difficulty = [
-    { value: "chocolate", label: "Easy" },
-    { value: "strawberry", label: "Medium" },
-    { value: "vanilla", label: "Hard" },
+    { value: "easy", label: "Easy" },
+    { value: "medium", label: "Medium" },
+    { value: "hard", label: "Hard" },
   ];
   const status = [
-    { value: "chocolate", label: "Solved" },
-    { value: "strawberry", label: "Unsolved" },
+    { value: "solved", label: "Solved" },
+    { value: "unsolved", label: "Unsolved" },
   ];
 
   const category = [
-    { value: "chocolate", label: "Array" },
-    { value: "strawberry", label: "Heap" },
-    { value: "vanilla", label: "Linked List" },
-    { value: "vanilla", label: "Binary Trees" },
-    { value: "vanilla", label: "Searching & Sorting" },
-    { value: "vanilla", label: "String" },
-    { value: "vanilla", label: "Greedy" },
-    { value: "vanilla", label: "Backtracking" },
-    { value: "vanilla", label: "Stacks & Queues" },
-    { value: "vanilla", label: "Graph" },
-    { value: "vanilla", label: "Dynamic Programming" },
-    { value: "vanilla", label: "Matrix" },
+    { value: "array", label: "Array" },
+    { value: "heap", label: "Heap" },
+    { value: "linkedlist", label: "Linked List" },
+    { value: "binarytrees", label: "Binary Trees" },
+    { value: "searching&sorting", label: "Searching & Sorting" },
+    { value: "string", label: "String" },
+    { value: "greedy", label: "Greedy" },
+    { value: "backtracking", label: "Backtracking" },
+    { value: "stacks&queues", label: "Stacks & Queues" },
+    { value: "graph", label: "Graph" },
+    { value: "dynamicprogramming", label: "Dynamic Programming" },
+    { value: "matrix", label: "Matrix" },
   ];
 
   const fetchAllQuestion = async () => {

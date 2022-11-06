@@ -37,7 +37,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/Problem/:userId" element={<Problem />} />
+          <Route
+            path="/Problem/:userId"
+            element={
+              <ProtectedRoute>
+                {" "}
+                <Problem />{" "}
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </UserProvider>
     </Router>
