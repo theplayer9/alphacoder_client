@@ -104,15 +104,15 @@ const Landing = () => {
       if (statusId === 1 || statusId === 2) {
         // still processing
         setTimeout(() => {
-          checkStatus(token)
-        }, 2000)
-        return
+          checkStatus(token);
+        }, 2000);
+        return;
       } else {
-        setProcessing(false)
-        setOutputDetails(response.data)
-        showSuccessToast(`Compiled Successfully!`)
-        console.log('response.data', response.data)
-        return
+        setProcessing(false);
+        setOutputDetails(response.data);
+        showSuccessToast(`Compiled Successfully!`);
+        console.log("response.data", response.data);
+        return;
       }
     } catch (err) {
       console.log("err", err);
@@ -173,7 +173,7 @@ const Landing = () => {
         draggable
         pauseOnHover
       />
-      <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
+
       <div className="flex flex-row">
         <div className="px-4 py-2">
           <LanguagesDropdown onSelectChange={onSelectChange} />
@@ -203,7 +203,7 @@ const Landing = () => {
               onClick={handleCompile}
               disabled={!code}
               className={classnames(
-                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-primary-color flex-shrink-0",
                 !code ? "opacity-50" : ""
               )}
             >

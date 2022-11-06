@@ -15,7 +15,7 @@ const DashData = () => {
   const [count, setCount] = useState({});
   const [loading, setLoading] = useState(true);
   const FETCH_URI =
-    "https://alphacoder-server-production-c02a.up.railway.app/sheet";
+    "https://alphacoder-server-production-c02a.up.railway.app/sheets/blind75sheet";
   const [token] = useUserAuth();
   const router = useNavigate();
 
@@ -54,20 +54,18 @@ const DashData = () => {
       },
     };
     const response = await fetch(FETCH_URI, requestOptions);
-    const data = await response.text();
-    const objectData = [];
-    const mainData = JSON.parse(data);
-    objectData.push(mainData);
-    const easycount = mainData.all_data.filter(
+    const data = await response.json();
+
+    const easycount = data.sheet_data.filter(
       (item) => item.Level === "easy"
     ).length;
-    const mediumcount = mainData.all_data.filter(
+    const mediumcount = data.sheet_data.filter(
       (item) => item.Level === "medium"
     ).length;
-    const hardcount = mainData.all_data.filter(
+    const hardcount = data.sheet_data.filter(
       (item) => item.Level === "hard"
     ).length;
-    const emptycount = mainData.all_data.filter(
+    const emptycount = data.sheet_data.filter(
       (item) => item.Level === ""
     ).length;
     const questioncount = {
@@ -77,7 +75,7 @@ const DashData = () => {
       empty: emptycount,
     };
     if (response.status === 200) {
-      setAllQuestion(mainData);
+      setAllQuestion(data.sheet_data);
       setCount(questioncount);
       setLoading(false);
     }
@@ -182,20 +180,26 @@ const DashData = () => {
                       <th>Category</th>
                     </tr>
 
-                    {allQuestion.all_data.map((question, i) => (
+                    {allQuestion.map((question, i) => (
                       <tr
                         key={i}
                         id={i}
                         className="flex w-[98%] hover:cursor-pointer  h-16 items-center shadow-light-shadow mt-4 bg-primary gap-y-3 justify-between border-b-2 rounded-md px-2 "
-                        onClick={() => router("/Landing")}
                       >
                         <td className="w-[5%]">{question.Id}</td>
-                        <td className="w-[35%] pr-5 ">{question.Name}</td>
+                        <td
+                          className="w-[35%] pr-5  hover:underline "
+                          onClick={() => router(`/Problem/${question.Id}`)}
+                        >
+                          {question.Name}
+                        </td>
                         <td className="w-[20%]">
                           {question.Link === "" ? (
-                            <InsertDriveFileIcon className=" text-red-700  "></InsertDriveFileIcon>
+                            <InsertDriveFileIcon className=" hover:cursor-text text-red-700" />
                           ) : (
-                            <InsertDriveFileIcon className="text-green-600 "></InsertDriveFileIcon>
+                            <a href={question.Link}>
+                              <InsertDriveFileIcon className="text-green-600 " />
+                            </a>
                           )}
                         </td>
                         <td className="w-[5%]">

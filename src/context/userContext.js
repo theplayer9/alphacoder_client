@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("access_token"));
+  const [name, setName] = useState("");
 
   useEffect(() => {
     const fetchUser = async () => {

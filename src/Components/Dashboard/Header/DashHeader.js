@@ -3,6 +3,11 @@ import Avatar from "../../../Assets/Avatars/face1.svg";
 import { useNavigate } from "react-router-dom";
 const DashHeader = () => {
   const router = useNavigate();
+  const logout = () => {
+    router("/");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user_data");
+  };
   return (
     <div className="w-full h-16 fixed flex justify-between px-4 z-30 shadow-light-shadow items-center bg-primary text-text font-main">
       <div
@@ -14,8 +19,7 @@ const DashHeader = () => {
       <div className="flex items-center gap-2 ">
         <div
           onClick={() => {
-            localStorage.removeItem("access_token");
-            router("/");
+            logout();
           }}
           className="bg-primary-color hover:cursor-pointer rounded-md p-2"
         >
