@@ -8,7 +8,7 @@ import {
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+import Signup from "./Pages/SignUp";
 import { useUserAuth } from "./context/userContext";
 import { UserProvider } from "./context/userContext";
 import ProtectedRoute from "./ProtectiveRoute/ProtectedRoute";
