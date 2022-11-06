@@ -167,8 +167,8 @@ const DashData = () => {
                       className=" placeholder-primary-color h-10 focus:placeholder-primary text-primary"
                     />
                   </div>
-                </div> */}
-              {/* </div> */}
+                </div>
+              </div> */}
               <div className="w-full md:px-4   h-[700px] bg-primary-light">
                 <div className="flex scroll-smooth justify-center">
                   <table className="flex flex-col items-center w-full ">
