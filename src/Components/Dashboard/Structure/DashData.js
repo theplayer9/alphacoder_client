@@ -137,7 +137,7 @@ const DashData = () => {
               </div>
             </div>
             <div className="  overflow-x-auto md:overflow-x-hidden w-full h-[700px] bg-primary-light ">
-              <div className="md:px-4 absolute w-[80%] bg-primary-color h-20 fixed">
+              {/* <div className="md:px-4 absolute w-[80%] bg-primary-color h-20 fixed">
                 <div className="flex justify-between h-[100%] items-center ">
                   <div>
                     <Select
@@ -167,9 +167,9 @@ const DashData = () => {
                       className=" placeholder-primary-color h-10 focus:placeholder-primary text-primary"
                     />
                   </div>
-                </div>
-              </div>
-              <div className="w-full md:px-4 mt-[80px]  h-[700px] bg-primary-light">
+                </div> */}
+              {/* </div> */}
+              <div className="w-full md:px-4   h-[700px] bg-primary-light">
                 <div className="flex scroll-smooth justify-center">
                   <table className="flex flex-col items-center w-full ">
                     <tr className="flex h-16 mt-2 items-center w-full  shadow-light-shadow px-5 justify-between  bg-primary text-xl">
